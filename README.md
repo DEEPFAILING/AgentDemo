@@ -78,4 +78,6 @@ Final answer:
 
 Set your MODELSCOPE_API_TOKEN, DASHSCOPE_API_TOKEN. How to do that can refer to [modelscope-agent](https://github.com/modelscope/modelscope-agent). 
 
+```python construct_tool_vector_store.py``` 
+
 ```python play.py```
