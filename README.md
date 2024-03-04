@@ -73,3 +73,13 @@ Final answer:
 ```shell
 在排序后的数组中，数字4的位置是索引5。
 ```
+
+## Quick Start
+
+``git clone xxx``
+
+Set your MODELSCOPE_API_TOKEN, DASHSCOPE_API_TOKEN. How to do that can refer to [modelscope-agent](https://github.com/modelscope/modelscope-agent).
+
+``python construct_tool_vector_store.py``
+
+``python play.py``
