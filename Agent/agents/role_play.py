@@ -107,6 +107,8 @@ class RolePlay(BaseAgent):
         self.tool_names = ','.join(tool.name
                                    for tool in self.function_map.values())
 
+        print(f"候选工具：{self.tool_names}")
+
         self.system_prompt = ''
         self.query_prefix = ''
         self.query_prefix_dict = {'role': '', 'tool': ''}
