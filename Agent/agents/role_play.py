@@ -194,16 +194,19 @@ class RolePlay(BaseAgent):
                 yield s
 
             # the type of the response of dashscope's model
-            if isinstance(llm_result, str):
-                use_tool, action, action_input, output = self.llm._detect_tool(
-                    llm_result, function_map=self.function_map)
+            # if isinstance(llm_result, str):
+            #     use_tool, action, action_input, output = self.llm._detect_tool(
+            #         llm_result, function_map=self.function_map)
                 
-            # the type of the response of openai's model
-            elif isinstance(llm_result, dict):
-                use_tool, action, action_input, output = super()._detect_tool(
-                    llm_result, function_map=self.function_map)
-            else:
-                assert 'llm_result must be an instance of dict or str'
+            # # the type of the response of openai's model
+            # elif isinstance(llm_result, dict):
+            #     use_tool, action, action_input, output = super()._detect_tool(
+            #         llm_result, function_map=self.function_map)
+            # else:
+            #     assert 'llm_result must be an instance of dict or str'
+
+            use_tool, action, action_input, output = self.llm._detect_tool(
+                llm_result, function_map=self.function_map)
 
             # yield output
             print(output)

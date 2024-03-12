@@ -2,6 +2,13 @@
 
 An simple agent framework based on [modelscope-agent](https://github.com/modelscope/modelscope-agent) and made some improvement on it. Some inspiration also comes from [XAgent](https://github.com/OpenBMB/XAgent). This project is just for learning.
 
+## Some Improvement
+
+1. Adjust the code structure. The output format of the model will only differ depending on the model interface, so the _detect_tool() method can be removed from the Agent base class its subclass objects and added to the llm base class and its subclass. In this way, the framework maintainer overrides the _detect_tool method of the llm subclass when extending the model type (a necessary work), and the framework user no longer needs to worry about how to parse it when building his own Agent subclass object. For model output, you can directly call the _detect_tool() method of the llm object maintained by the Agent object, which unifies the interface and reduces redundancy.
+2. Integrate the function_retrieve function into the Agent base class, and users can start the construction and loading of function_retriever on demand. Agent subclasses do not need to care about the specific implementation and execution process of function_retriever. The Agent base class will update the searched functions into function_map, which is compatible with directly specifying function_list.
+3. Copy and paste the more robust tool detection logic in alpha_umi of modelscope-agent into the _detect_tool() method that has been adjusted to the llm base class. Agent objects can use this more robust tool detection method directly through the llm object they maintain.
+4. Implement a simple ask_human_for_help tool.
+
 ## Components
 
 1. **LLMs** which are able to generate function callings given instruction and function_list.
